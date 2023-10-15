@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0
+            }
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <!--  <img src="https://www.superbank.id/content/img/logo_dark.webp" style="width:100%">-->
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>Home</p>
+    </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+        <a href="#" class="w3-bar-item w3-button" style="width:25% !important">Home</a>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <div class="section"></div>
+        <div class="w3-container">
+            <div class="w3-container w3-blue-grey"
+                 style="display: inline-block; padding: 32px 60px 0px 60px; border: 1px solid #0edc12;">
+<!--
+                <form class="col s12" method="post" action="/auth/google/loginByEmail">
+                    <div class='row'>
+                        <div class='col s12'>
+                        </div>
+                    </div>
+
+                    <div class='w3-container'>
+                        <label for="email">Enter your email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class='w3-container'>
+                        <label for='password'>Enter your password:</label>
+                        <input class='validate' type='password' name='password' id='password'/>
+
+                    </div>
+
+                    <br/>
+                    <div class='w3-container'>
+                        <button type='submit' name='btn_login' class='w3-button w3-round-xlarge'>
+                            Login
+                        </button>
+                    </div>
+                </form>-->
+
+                <div class="w3-container">
+                    <div class="w3-button w3-round-xlarge w3-teal">
+                        <a href="/auth/google/login" style="text-transform:none">
+                            <div class="left">
+                                <img width="50px" alt="Google &quot;G&quot; Logo"
+                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+                            </div>
+                            Login with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        <a href="#!">Create account</a>-->
+    </header>
+
+
+    <!-- Footer -->
+    <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+        <a href="mailto:revapradana24@gmail.com" target="_blank" class="w3-hover-text-green"> <i
+                class="fa fa-envelope w3-hover-opacity"></i> </a>
+        <a href="https://www.linkedin.com/in/revapradanapriambodo/" target="_blank" class="w3-hover-text-green"><i
+                class="fa fa-linkedin w3-hover-opacity"></i> </a>
+        <p class="w3-medium">Reva Pradana</p>
+        <!-- End footer -->
+    </footer>
+
+    <!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>

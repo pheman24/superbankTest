@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+        .w3-row-padding img {margin-bottom: 12px}
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {width: 120px;background: #222;}
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {margin-left: 120px}
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+        form {
+
+            overflow: hidden;
+
+        }
+
+        label {
+
+            float: left;
+
+            width: 200px;
+
+            padding-right: 24px;
+
+        }
+
+        input {
+
+            float: left;
+
+            width: calc(100% - 200px);
+
+        }
+
+        button {
+
+            float: right;
+            width: auto;
+
+        }
+
+
+        .col-25 {
+            float: left;
+            width: 100%;
+            margin-top: 20px;
+            margin-left: 100px;
+            alignment: center;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <!--  <img src="https://www.superbank.id/content/img/logo_dark.webp" style="width:100%">-->
+    <a href="/auth/google/login" class="w3-bar-item w3-button w3-padding-large w3-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>Homes</p>
+    </a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>Admin Dashboard</p>
+    </a>
+    <!--<a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-xxlarge"></i>
+        <p>PHOTOS</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>Logout</p>
+    </a>-->
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+    <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+        <a href="/auth/google/login" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+        <a href="#" class="w3-bar-item w3-button" style="width:25% !important">Complain</a>
+        <!--<a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+        <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>-->
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+     <!-- complain Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="complain">
+        <h2 class="w3-text-light-grey">Complain</h2>
+        <hr style="width:300px" class="w3-opacity">
+        <form id="complainform" action="/auth/google/submitForm" method="post" enctype="multipart/form-data">
+            <label for="Uname">User name:</label>
+            <input type="text" id="Uname" name="Uname"><br><br>
+            <label for="Umail">User Mail:</label>
+            <input type="email" id="Umail" name="Umail"><br><br>
+            <label for="formSelector">Category:</label>
+            <select id="formSelector">
+                <option value="">select form type</option>
+                <option value="categoryA">Category A</option>
+                <option value="categoryB">Category B</option>
+            </select>
+            <div class="col-25" id="categoryA" style="display:none;">
+                <input name="idCategory" value="categoryA" style="display:none;">
+                <label for="Proves">Proves:</label>
+                <input type="file" id="Proves" name="Proves" multiple="multiple"><br><br>
+                <label for="Amount">Amount:</label>
+                <input type="number" id="Amount" name="Amount" required pattern="[0-9]{1,4}"><br><br>
+                <label for="BankName">Bank Name:</label>
+                <input type="text" id="BankName" name="BankName" required min="1"><br><br>
+                <label for="BankAccount">Bank Account:</label>
+                <input type="text" id="BankAccount" name="BankAccount" required min="1"><br><br>
+                <label for="Remark">Remark:</label>
+                <textarea rows="4" cols="50" name="Remark" id="Remark" form="complainform" required min="1">Enter text here...</textarea>
+
+            </div>
+            <div class="col-25" id="categoryB" style="display:none;">
+                <input name="idCategory" value="categoryB" style="display:none;">
+                <label for="NameB">Name:</label>
+                <input type="text" id="NameB" name="NameB"><br><br>
+                <label for="BankNameB">Bank Name:</label>
+                <input type="text" id="BankNameB" name="BankNameB"><br><br>
+                <label for="NumberAccountB">Number Account:</label>
+                <input type="number" id="NumberAccountB" name="NumberAccountB" min="0" value="0" required pattern="[0-9]{1,4}"><br><br>
+            </div><br><br>
+
+            <label for="Uissue">Issue Description:</label>
+            <input type="text" id="Uissue" name="Uissue"><br><br>
+            <button type="submit" >Submit</button>
+            <script>
+                var formSelector = document.getElementById("formSelector");
+                var categoryA = document.getElementById("categoryA");
+                var categoryB = document.getElementById("categoryB");
+
+                formSelector.addEventListener("change", function (event) {
+                    categoryA.style.display = "none";
+                    categoryB.style.display = "none";
+
+                    switch (formSelector.value) {
+                        case "categoryA":
+                            categoryA.style.display = "block";
+
+                            break;
+                        case "categoryB":
+                            categoryB.style.display = "block";
+                            break;
+                    }
+                });
+
+            </script>
+        </form>
+        <!-- End complain Section -->
+    </div>
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+        <a href="mailto:revapradana24@gmail.com"  target="_blank" class="w3-hover-text-green"> <i class="fa fa-envelope w3-hover-opacity"></i> </a>
+        <a href="https://www.linkedin.com/in/revapradanapriambodo/"  target="_blank" class="w3-hover-text-green"><i class="fa fa-linkedin w3-hover-opacity"></i> </a>
+        <p class="w3-medium">Reva Pradana</p>
+        <!-- End footer -->
+    </footer>
+
+    <!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>
