@@ -9,7 +9,7 @@ import (
 
 func main() {
 	server := &http.Server{
-		Addr: fmt.Sprintf(":9242"),
+		Addr: fmt.Sprintf(":8000"),
 		Handler: handler.New(),
 	}
 
